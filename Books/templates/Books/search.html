@@ -1,0 +1,34 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script>
+	function searchOpen() {
+	    var search = $('#txtSearch').val()
+	    var data = {
+	        search: search
+	    };
+	    $.ajax({
+	        url: '/search.json',
+	        data: data,
+	        dataType: 'jsonp',
+	        jsonp: 'callback',
+	        jsonpCallback: 'searchResult'
+	    });
+	}
+
+	function searchResult(data) {
+	    $( "#txtSearch" ).autocomplete ({
+	        source: data
+	    });
+	}
+	</script>
+</head>
+
+<body>
+	<h1>Search Book!</h1>
+	<input type="text" name="search" id="txtSearch" onkeyup="searchOpen()" />
+</body>
+</html>
