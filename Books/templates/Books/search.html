@@ -24,11 +24,15 @@
 	        source: data
 	    });
 	}
+
 	</script>
 </head>
 
 <body>
 	<h1>Search Book!</h1>
-	<input type="text" name="search" id="txtSearch" onkeyup="searchOpen()" />
+	<div class="ui-widget">
+		<label for="txtSearch">Title: </label>
+		<input type="text" name="search" id="txtSearch" onkeyup="searchOpen()" />
+	</div>
 </body>
 </html>
